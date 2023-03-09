@@ -30,10 +30,11 @@ The incremented version.
 
     - name: Bump release version
       id: bump_version
-      uses: christian-draeger/increment-semantic-version@1.1.0
+      uses: TLii/increment-semantic-version-with-build-numbers@1.0.0
       with:
         current-version: '2.11.7-alpha.3' # also accepted: 'v2.11.7-alpha.3' | '2.11.7-alpha3'
         version-fragment: 'feature'
+        include-build-number: 'true'
     - name: Do something with your bumped release version
       run: echo ${{ steps.bump_version.outputs.next-version }}
       # will print 2.12.0
