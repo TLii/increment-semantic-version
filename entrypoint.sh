@@ -32,13 +32,14 @@ main() {
     echo "could not read previous version"; exit 1
   fi
 
-  possible_release_types="major feature bug alpha beta pre rc"
+
+  possible_release_types="major feature bug alpha beta pre rc build"
 
   if [[ ! ${possible_release_types[*]} =~ ${release_type} ]]; then
     echo "valid argument: [ ${possible_release_types[*]} ]"; exit 1
   fi
 
-  major=0; minor=0; patch=0; pre=""; preversion=0
+  major=0; minor=0; patch=0; pre=""; preversion=0; build=""; buildno=0;
 
   # break down the version number into it's components
   regex="^v?([0-9]+).([0-9]+).([0-9]+)((-[a-z]+).?([0-9]+))?.?((\+[a-z]+).?([0-9]+))?$"
@@ -111,7 +112,14 @@ main() {
         fi
     fi
     pre="-rc.$preversion";;
+  "build")
+    # Skip here if build number is always included
+    [[ $include_build_number == "true" ]] || increment_build;
   esac
+  
+# If build number should be included, increment it
+[[ $include_build_number == "true" ]] && increment_build
+
 
   next_version="${major}.${minor}.${patch}${pre}"
   echo "create $release_type-release version: $prev_version -> $next_version"
