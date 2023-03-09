@@ -11,7 +11,7 @@ set -euo pipefail
 
 main() {
 
-  prev_version="$1"; release_type="$2"
+  prev_version="$1"; release_type="$2"; include_build_number="$3"
 
   if [[ "$prev_version" == "" ]]; then
     echo "could not read previous version"; exit 1

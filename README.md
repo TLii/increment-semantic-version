@@ -14,6 +14,9 @@ This is a GitHub action to bump a given semantic version, depending on a given v
 
 Possible options are **[ major | feature | bug | alpha | beta | pre | rc | build ]**
 
+### `include-build-number`
+
+*Defaults to false.*Whether you want to always include a build number. If true, all output versions will include a build number that resets with every semver change. If false, build numbers are only used if version-fragment is `build`.
 
 ## Outputs
 
