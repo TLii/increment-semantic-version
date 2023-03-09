@@ -1,5 +1,7 @@
 # Increment Semantic Version - with Build Numbers
 
+Forked from [christian-drager/increment-semantic-version](https://github.com/christian-draeger/increment-semantic-version/forks).
+
 This is a GitHub action to bump a given semantic version, depending on a given version fragment.
 
 ## Inputs
