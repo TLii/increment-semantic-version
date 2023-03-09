@@ -133,8 +133,12 @@ main() {
 [[ $include_build_number == "true" ]] && increment_build
 
 
-  next_version="${major}.${minor}.${patch}${pre}"
-  echo "create $release_type-release version: $prev_version -> $next_version"
+  next_version="${major}.${minor}.${patch}${pre}${build}"
+  if [[ $release_type == "build" ]]; then
+    echo "create new build: $prev_version -> $next_version";
+  else
+    echo "create $release_type-release version: $prev_version -> $next_version"
+  fi
 
   echo "next-version=$next_version" >> $GITHUB_OUTPUT
 }
