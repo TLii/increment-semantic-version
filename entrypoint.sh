@@ -117,7 +117,7 @@ main() {
     [[ $include_build_number == "true" ]] || increment_build;
   esac
   
-# If build number should be included, increment it
+# If build number should always be included, increment it
 [[ $include_build_number == "true" ]] && increment_build
 
 
