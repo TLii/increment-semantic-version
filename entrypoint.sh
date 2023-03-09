@@ -32,6 +32,10 @@ main() {
     echo "could not read previous version"; exit 1
   fi
 
+  if [[ "$include_build_number" != "" && "$include_build_number" != "false" && "$include_build_number" != "true" ]]; then
+    echo "Invalid value for include-build-number"; exit 1
+  fi
+
 
   possible_release_types="major feature bug alpha beta pre rc build"
 
@@ -127,4 +131,4 @@ main() {
   echo "next-version=$next_version" >> $GITHUB_OUTPUT
 }
 
-main "$1" "$2"
+main "$1" "$2" "${3:-false}"
