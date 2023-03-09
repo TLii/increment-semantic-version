@@ -48,30 +48,49 @@ If semantic version changes in any way, build number is reset and the first buil
 
 ## input / output Examples
 
-| version-fragment | current-version |   | output         |
-| ---------------- | --------------- | - | -------------- |
-| major            | 2.11.7          |   | 3.0.0          |
-| major            | v2.11.7         |   | 3.0.0          |
-| major            | 2.11.7-alpha3   |   | 3.0.0          |
-| major            | 2.11.7-alpha.3  |   | 3.0.0          |
-| feature          | 2.11.7          |   | 2.12.0         |
-| feature          | 2.11.7-alpha3   |   | 2.12.0         |
-| feature          | 2.11.7-alpha.3  |   | 2.12.0         |
-| bug              | 2.11.7          |   | 2.11.8         |
-| bug              | 2.11.7-alpha3   |   | 2.11.8         |
-| bug              | 2.11.7-alpha.3  |   | 2.11.8         |
-| alpha            | 2.11.7          |   | 2.11.7-alpha.1 |
-| alpha            | 2.11.7-alpha3   |   | 2.11.7-alpha.4 |
-| alpha            | 2.11.7-alpha.3  |   | 2.11.7-alpha.4 |
-| beta             | 2.11.7          |   | 2.11.7-beta.1  |
-| beta             | 2.11.7-alpha3   |   | 2.11.7-beta.1  |
-| beta             | 2.11.7-alpha.3  |   | 2.11.7-beta.1  |
-| pre              | 2.11.7          |   | 2.11.7-pre.1   |
-| pre              | 2.11.7-alpha3   |   | 2.11.7-pre.1   |
-| pre              | 2.11.7-alpha.3  |   | 2.11.7-pre.1   |
-| rc               | 2.11.7          |   | 2.11.7-rc.1    |
-| rc               | 2.11.7-alpha3   |   | 2.11.7-rc.1    |
-| rc               | 2.11.7-alpha.3  |   | 2.11.7-rc.1    |
+| version-fragment | current-version          |   | output w/o build number| output w/ build number |
+| ---------------- | ------------------------ | - | ---------------------- | ---------------------- |
+| major            | 2.11.7                   |   | 3.0.0                  | 3.0.0+build.0          |
+| major            | v2.11.7                  |   | 3.0.0                  | 3.0.0+build.0          |
+| major            | 2.11.7-alpha3            |   | 3.0.0                  | 3.0.0+build.0          |
+| major            | 2.11.7-alpha.3           |   | 3.0.0                  | 3.0.0+build.0          |
+| major            | 2.11.7-alpha.3+build.23  |   | 3.0.0                  | 3.0.0+build.0          |
+| feature          | 2.11.7                   |   | 2.12.0                 | 2.12.0+build.0         |
+| feature          | 2.11.7+build.5           |   | 2.12.0                 | 2.12.0+build.0         |
+| feature          | 2.11.7-alpha3            |   | 2.12.0                 | 2.12.0+build.0         |
+| feature          | 2.11.7-alpha.3           |   | 2.12.0                 | 2.12.0+build.0         |
+| feature          | 2.11.7-alpha.3+build.5   |   | 2.12.0                 | 2.12.0+build.0         |
+| bug              | 2.11.7                   |   | 2.11.8                 | 2.11.8+build.0         |
+| bug              | 2.11.7+build.2           |   | 2.11.8                 | 2.11.8+build.0         |
+| bug              | 2.11.7-alpha3            |   | 2.11.8                 | 2.11.8+build.0         |
+| bug              | 2.11.7-alpha.3           |   | 2.11.8                 | 2.11.8+build.0         |
+| bug              | 2.11.7-alpha.3+build.7   |   | 2.11.8                 | 2.11.8+build.0         |
+| alpha            | 2.11.7                   |   | 2.11.7-alpha.1         | 2.11.7-alpha.1+build.0 |
+| alpha            | 2.11.7+build.2           |   | 2.11.7-alpha.1         | 2.11.7-alpha.1+build.0 |
+| alpha            | 2.11.7-alpha3            |   | 2.11.7-alpha.4         | 2.11.7-alpha.1+build.0 |
+| alpha            | 2.11.7-alpha.3           |   | 2.11.7-alpha.4         | 2.11.7-alpha.1+build.0 |
+| alpha            | 2.11.7-alpha.3+build.3   |   | 2.11.7-alpha.4         | 2.11.7-alpha.1+build.0 |
+| beta             | 2.11.7                   |   | 2.11.7-beta.1          | 2.11.7-beta.1+build.0  |
+| beta             | 2.11.7+build.1           |   | 2.11.7-beta.1          | 2.11.7-beta.1+build.0  |
+| beta             | 2.11.7-alpha3            |   | 2.11.7-beta.1          | 2.11.7-beta.1+build.0  |
+| beta             | 2.11.7-alpha.3           |   | 2.11.7-beta.1          | 2.11.7-beta.1+build.0  |
+| beta             | 2.11.7-alpha.3+build.5   |   | 2.11.7-beta.1          | 2.11.7-beta.1+build.0  |
+| pre              | 2.11.7                   |   | 2.11.7-pre.1           | 2.11.7-pre.1+build.0   |
+| pre              | 2.11.7+build.5           |   | 2.11.7-pre.1           | 2.11.7-pre.1+build.0   |
+| pre              | 2.11.7-alpha3            |   | 2.11.7-pre.1           | 2.11.7-pre.1+build.0   |
+| pre              | 2.11.7-alpha.3           |   | 2.11.7-pre.1           | 2.11.7-pre.1+build.0   |
+| pre              | 2.11.7-alpha.3+build.5   |   | 2.11.7-pre.1           | 2.11.7-pre.1+build.0   |
+| rc               | 2.11.7                   |   | 2.11.7-rc.1            | 2.11.7-rc.1+build.0    |
+| rc               | 2.11.7+build.1           |   | 2.11.7-rc.1            | 2.11.7-rc.1+build.0    |
+| rc               | 2.11.7-alpha3            |   | 2.11.7-rc.1            | 2.11.7-rc.1+build.0    |
+| rc               | 2.11.7-alpha.3           |   | 2.11.7-rc.1            | 2.11.7-rc.1+build.0    |
+| rc               | 2.11.7-alpha.3+build.5   |   | 2.11.7-rc.1            | 2.11.7-rc.1+build.0    |
+| build            | 2.11.7                   |   | 2.11.7+build.1         | 2.11.7.1+build.1       |
+| build            | 2.11.7+build.2           |   | 2.11.7+build.3         | 2.11.7.1+build.3       |
+| build            | 2.11.7-alpha3            |   | 2.11.7-alpha.1+build.1 | 2.11.7-alpha.1+build.1 |
+| build            | 2.11.7-alpha.3           |   | 2.11.7-alpha.1+build.1 | 2.11.7-alpha.1+build.1 |
+| build            | 2.11.7-alpha.3+build.5   |   | 2.11.7-alpha.1+build.6 | 2.11.7-alpha.1+build.6 |
+
 
 # License
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
