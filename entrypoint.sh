@@ -9,6 +9,21 @@
 #     pipeline exit successfully (-o pipefail)
 set -euo pipefail
 
+increment_build() {
+  if [[ -z "$build" ]];
+    then
+      buildno=0
+      echo "No build number, so I'll go with zero"
+    else
+      if [[ "$build" != "+build" ]];
+        then
+        buildno=0
+        else ((++buildno))
+      fi
+  fi
+  build="+build.$buildno";
+}
+
 main() {
 
   prev_version="$1"; release_type="$2"; include_build_number="$3"
