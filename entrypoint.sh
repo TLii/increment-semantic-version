@@ -63,20 +63,22 @@ main() {
   # increment version number based on given release type
   case "$release_type" in
   "major")
-    ((++major)); minor=0; patch=0; pre="";;
+    ((++major)); minor=0; patch=0; pre=""; build="";;
   "feature")
-    ((++minor)); patch=0; pre="";;
+    ((++minor)); patch=0; pre=""; build="";;
   "bug")
-    ((++patch)); pre="";;
+    ((++patch)); pre=""; build="";;
   "alpha")
     if [[ -z "$preversion" ]];
       then
         preversion=0
+        build=""
       else
         if [[ "$pre" != "-alpha" ]];
           then
           preversion=1
           else ((++preversion))
+          build=""
         fi
     fi
     pre="-alpha.$preversion";;
@@ -84,10 +86,12 @@ main() {
     if [[ -z "$preversion" ]];
       then
         preversion=0
+        build=""
       else
         if [[ "$pre" != "-beta" ]];
           then
           preversion=1
+          build=""
           else ((++preversion))
         fi
     fi
@@ -96,10 +100,12 @@ main() {
     if [[ -z "$preversion" ]];
       then
         preversion=0
+        build=""
       else
         if [[ "$pre" != "-pre" ]];
           then
           preversion=1
+          build=""
           else ((++preversion))
         fi
     fi
@@ -108,10 +114,12 @@ main() {
     if [[ -z "$preversion" ]];
       then
         preversion=0
+        build=""
       else
         if [[ "$pre" != "-rc" ]];
           then
           preversion=1
+          build=""
           else ((++preversion))
         fi
     fi
@@ -120,7 +128,7 @@ main() {
     # Skip here if build number is always included
     [[ $include_build_number == "true" ]] || increment_build;
   esac
-  
+
 # If build number should always be included, increment it
 [[ $include_build_number == "true" ]] && increment_build
 
