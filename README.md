@@ -91,6 +91,6 @@ If semantic version changes in any way, build number is reset and the first buil
 | build            | 2.11.7-alpha.3           |   | 2.11.7-alpha.1+build.1 | 2.11.7-alpha.1+build.1 |
 | build            | 2.11.7-alpha.3+build.5   |   | 2.11.7-alpha.1+build.6 | 2.11.7-alpha.1+build.6 |
 
+## License
 
-# License
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
