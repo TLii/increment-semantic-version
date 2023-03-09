@@ -1,4 +1,4 @@
-# Increment Semantic Version
+# Increment Semantic Version - with Build Numbers
 
 This is a GitHub action to bump a given semantic version, depending on a given version fragment.
 
@@ -12,7 +12,8 @@ This is a GitHub action to bump a given semantic version, depending on a given v
 
 **Required** The versions fragment you want to increment.
 
-Possible options are **[ major | feature | bug | alpha | beta | pre | rc ]**
+Possible options are **[ major | feature | bug | alpha | beta | pre | rc | build ]**
+
 
 ## Outputs
 
