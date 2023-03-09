@@ -35,7 +35,17 @@ The incremented version.
     - name: Do something with your bumped release version
       run: echo ${{ steps.bump_version.outputs.next-version }}
       # will print 2.12.0
-      
+
+## Build numbers
+
+**Note: Build numbers are not considered version changes!**
+You can use build number in two ways.
+
+1) By setting `include-build-number` (see above) to true, the build number is appended and either reset to 0 or incremented on every run of this action.
+2) If you use `build` as `version-fragment`, semantic version does not change, but build number is incremented. The intended use is when no version change is triggered (as per semantic version specification), but the change should still be noticeable in the version statement.
+
+If semantic version changes in any way, build number is reset and the first build is 0. **If `current-version` does not include a build number, it is assumed to be the first build (ie. 0) and will be incremented to 1 for `next-version`.**
+
 ## input / output Examples
 
 | version-fragment | current-version |   | output         |
